@@ -14,8 +14,8 @@ const config = {
 	},
 	target: 'node',
 	node: {
-		__diename: 'mock',
-		__filename: 'mock'
+		__diename: true,
+		__filename: true
 	},
 	externals: nodeModules,
 	output: {

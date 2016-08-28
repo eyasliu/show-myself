@@ -1,23 +1,20 @@
 import "babel-polyfill";
 import koa from 'koa';
-import fs from 'fs';
+import compose from 'koa-compose';
+import convert from 'koa-convert';
+import Router from 'koa-router';
 
 import config from 'root/config';
+import policies, {beforeController, afterController} from './policies';
+import controllers from './controllers';
 
+global.AppConfig = config;
 const app = new koa();
 
-// homepage return html
-app.use(async (c, next) => {
-	if(c.url === '/'){
-		const html = await new Promise(resolve => fs.readFile('index.html', (err, file) => resolve(file)))
-		c.body = html.toString().replace('{{host}}', 'http://' + config.host + ':' + config.client.port + '/static')
-	}else{
-		return next();
-	}
-})
-
-app.use(async (c) => {
-	c.body = 'hehe'
-})
+app.use(compose([
+	beforeController,
+	controllers,
+	afterController
+]))
 
 app.listen(config.server.port)
