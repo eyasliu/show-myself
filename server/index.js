@@ -15,8 +15,8 @@ global.ServerConfig = config.server;
 global.App = app;
 global.Model = Model;
 
-const getModels = require('./services/getModels').default;
-getModels([
+const modelsInit = require('./models/init').default;
+modelsInit([
 	'user',
 	'cases',
 	'tag'

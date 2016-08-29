@@ -25,7 +25,10 @@ const cases = Model.define('cases', {
 	},
 	url: {
 		type: S.STRING
-	}
+	},
+	// author: {
+	// 	type: S.STRING
+	// }
 }, {
 	classMethods: {
 		findList: getList
@@ -34,28 +37,5 @@ const cases = Model.define('cases', {
 		// findList: getList
 	}
 })
-
-
-cases.sync({
-	// force: true
-})
-
-// some mock data
-if(process.env.NODE_ENV === 'development'){
-	const Mock = require('mockjs');
-	const mockUsers = Mock.mock({
-		'users|10-20': [{
-			title: '@word',
-			thumb: '@image',
-			images: JSON.stringify(Mock.mock(['@image', '@image', '@image', '@image'])),
-			content: '@cparagraph',
-			url: '@url(http)'
-		}]
-	})
-	cases.bulkCreate(mockUsers.users).catch(err => {
-		console.log(err);
-	})
-	console.log('create mock users success \n', mockUsers.users )
-}
 
 export default cases;

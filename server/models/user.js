@@ -1,5 +1,4 @@
 import S from 'sequelize';
-// import seq from './index';
 import Encrypt from '../services/Encrypt';
 
 const user = Model.define('user', {
@@ -37,28 +36,5 @@ const user = Model.define('user', {
 		}
 	}
 })
-
-user.sync({
-	// force: true
-});
-
-// some mock data
-// if(process.env.NODE_ENV === 'development'){
-// 	const Mock = require('mockjs');
-// 	const mockUsers = Mock.mock({
-// 		'users|10-20': [{
-// 			username: '@word',
-// 			nickname: '@name',
-// 			password: 'passwd123',
-// 			email: '@email',
-// 			avatar: '@image',
-// 			status: 'active'
-// 		}]
-// 	})
-// 	user.bulkCreate(mockUsers.users).catch(err => {
-// 		console.log(err);
-// 	})
-// 	console.log('create mock users success \n', mockUsers.users )
-// }
 
 export default user;

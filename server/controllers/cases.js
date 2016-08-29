@@ -30,6 +30,8 @@ CaseCtrl.post('/', async c => {
 CaseCtrl.get('/:id', async c => {
 	const {id} = c.params
 	const cases = await Cases.findById(id)
+	// const ccc = await cases.setUser(68)
+	// cases.author = await cases.getUser({where: {id: 68}})
 	if(cases){
 		c.ok(cases);
 	}else{
