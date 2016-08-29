@@ -1,5 +1,5 @@
 {
 	"server": {
-		"databaseUrl": "mysql://root:pwd+sql@127.0.0.1:3006/show-myself"
+		"databaseUrl": "mysql://root:pwd+sql@127.0.0.1:3306/show-myself"
 	}
 }

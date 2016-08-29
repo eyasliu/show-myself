@@ -1,24 +1,31 @@
 import passport from 'koa-passport';
 import {Strategy as LocalStrategy} from 'passport-local';
-
-const user = {
-	id: 1,
-	username: 'test'
-}
+import Encrypt from './Encrypt';
+import User from '../models/user';
 
 passport.serializeUser(function(user, done) {
   done(null, user.id)
 })
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(async function(id, done) {
+	const user = await User.findById(id)
   done(null, user)
 })
 
-passport.use(new LocalStrategy((username, password, done) => {
-	if(username === 'test' && password === 'test'){
-		done(null, user);
+passport.use(new LocalStrategy(async (username, password, done) => {
+	const user = await User.findByUsername(username)
+	if(user){
+		if(user && user.username === username && Encrypt.validate(password, user.password)){
+			done(null, user)
+		} else {
+			done(null, false, {
+				msg: 'password invalid'
+			})
+		}
 	}else{
-		done(null, false);
+		done(null, false, {
+			msg: 'can\'t find the user'
+		})
 	}
 }))
 

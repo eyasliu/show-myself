@@ -31,12 +31,11 @@ const config = {
 	  }
 	},
 	module: {
+		noParse: [join('../node_modules/sequelize/lib/model.js')],
 		loaders: [
 			{
 			  test: /\.js$/,
 			  loader: 'babel',
-			  // include: join('../server')
-			  // exclude: [join('../node_modules')]
 			}
 		]
 	},
@@ -58,6 +57,7 @@ if(process.env.NODE_ENV == 'production'){
 		})
 	])
 } else {
+	config.devtool = 'source-map';
 	config.plugins.concat([
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.BannerPlugin('require("source-map-support").install();',

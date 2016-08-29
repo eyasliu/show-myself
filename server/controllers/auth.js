@@ -10,9 +10,15 @@ auth.get('/login', async function(c, next){
 auth.post('/login', (c, next) => (passport.authenticate('local', (user, info, status) => {
 	if(user === false) {
 		c.status = 401
-		c.body = {success: false}
+		c.body = {
+			status: 'error',
+			msg: info.msg
+		};
 	} else {
-		c.body = {success: true}
+		c.body = {
+			status: 'success',
+			user: user
+		}
 		return c.login(user);
 	}
 }))(c, next))
