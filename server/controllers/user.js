@@ -13,10 +13,6 @@ user.post('/', async (c, next) => {
 		const user = await User.create(body)
 		c.body = user;
 	} catch (err) {
-		console.log('some errors')
-
-		// c.status = 400;
-		// c.body = err.errors
 		c.badRequest(err.errors);
 	}
 })
@@ -40,8 +36,8 @@ user.delete('/:userid', async c => {
 			status: 'delete'
 		})
 		c.ok('success')
-	} catch(e) {
-		c.badRequest(e.errors|| e)
+	} catch(err) {
+		c.badRequest(err.errors)
 	}
 })
 
