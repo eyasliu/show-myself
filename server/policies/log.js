@@ -3,6 +3,6 @@ export default async (c, next) => {
 	let logstr = `${start.toString()}`
 	await next()
 	logstr += '| ' + c.status + ' | ';
-	logstr += (new Date) - start + 'ms | ' + c.url
+	logstr += (new Date) - start + 'ms | ' + c.request.method + ' -> ' + c.url
 	console.log(logstr);
 }
