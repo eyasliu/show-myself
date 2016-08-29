@@ -4,30 +4,27 @@ import compose from 'koa-compose';
 import Router from 'koa-router';
 import config from 'root/config';
 import response from './response';
+import models from './models';
 
-
+const Model = models(config.server.databaseUrl);
 const app = new koa();
 
 // 暴露出全局变量，方便使用
 global.AppConfig = config;
 global.ServerConfig = config.server;
 global.App = app;
+global.Model = Model;
 
-// init database
-
-
+const getModels = require('./services/getModels').default;
+getModels([
+	'user',
+	'cases'
+])
 
 const policies = require('./policies');
 const {beforeController, afterController} = policies;
 
 const controllers = require('./controllers').default;
-
-const model = require('./models');
-model.init([
-	'user'
-])
-
-
 
 app.keys = [
 	'iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAAS', 

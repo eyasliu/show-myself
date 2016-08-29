@@ -1,8 +1,8 @@
 import S from 'sequelize';
-import seq from './index';
+// import seq from './index';
 import Encrypt from '../services/Encrypt';
 
-const user = seq.define('user', {
+const user = Model.define('user', {
 	username: {
 		type: S.STRING,
 		unique: true,

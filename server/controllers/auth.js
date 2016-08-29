@@ -15,11 +15,11 @@ auth.post('/login', (c, next) => (passport.authenticate('local', (user, info, st
 			msg: info.msg
 		};
 	} else {
-		c.body = {
+		c.ok({
 			status: 'success',
 			user: user
-		}
-		return c.login(user);
+		})
+		c.login(user);
 	}
 }))(c, next))
 
