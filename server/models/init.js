@@ -40,40 +40,42 @@ export default models => {
 		})
 	}
 
-	/**
-	 * define mock data
-	 */
-	const Mock = require('mockjs');
-	const mockCases = mockData(M['cases'], {
-		'data|10-20': [{
-			title: '@word',
-			thumb: '@image',
-			images: JSON.stringify(Mock.mock(['@image', '@image', '@image', '@image'])),
-			content: '@cparagraph',
-			url: '@url(http)',
-			userId: 'eyas'
-		}]
-	})
-	const mockUser = mockData(M['user'], {
-		'data|10-20': [{
-			username: '@word',
-			nickname: '@name',
-			password: 'passwd123',
-			email: '@email',
-			avatar: '@image',
-			status: 'active'
-		}]
-	})
-	const mockTag = mockData(M['tag'], {
-		'users|10-20': [{
-			name: '@word',
-		}]
-	})
+	if(process.env.NODE_ENV === 'development'){}
+		/**
+		 * define mock data
+		 */
+		const Mock = require('mockjs');
+		const mockCases = mockData(M['cases'], {
+			'data|10-20': [{
+				title: '@word',
+				thumb: '@image',
+				images: JSON.stringify(Mock.mock(['@image', '@image', '@image', '@image'])),
+				content: '@cparagraph',
+				url: '@url(http)',
+				userId: 'eyas'
+			}]
+		})
+		const mockUser = mockData(M['user'], {
+			'data|10-20': [{
+				username: '@word',
+				nickname: '@name',
+				password: 'passwd123',
+				email: '@email',
+				avatar: '@image',
+				status: 'active'
+			}]
+		})
+		const mockTag = mockData(M['tag'], {
+			'users|10-20': [{
+				name: '@word',
+			}]
+		})
 
-	/**
-	 * start mock
-	 */
-	mockCases()
-	// mockUser()
-	// mockTag()
+		/**
+		 * start mock
+		 */
+		mockCases()
+		// mockUser()
+		// mockTag()
+	}
 }
