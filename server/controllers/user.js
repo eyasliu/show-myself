@@ -5,7 +5,13 @@ const user = new Router({
 });
 
 user.get('/', function(c, next){
-	c.body = 'is user'
+	if(c.state.user){
+		c.ok({
+			username: 'hello'
+		})
+	} else {
+		c.notFound('no login')
+	}
 })
 
 export default user.routes();

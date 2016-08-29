@@ -3,6 +3,7 @@ import koa from 'koa';
 import compose from 'koa-compose';
 import Router from 'koa-router';
 import config from 'root/config';
+import response from './response';
 
 const app = new koa();
 
@@ -20,6 +21,7 @@ app.keys = [
 ]
 
 app.use(compose([
+	response,
 	beforeController,
 	controllers,
 	afterController
