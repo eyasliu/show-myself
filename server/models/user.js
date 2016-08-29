@@ -33,7 +33,6 @@ const user = seq.define('user', {
 }, {
 	classMethods: {
 		findByUsername(username){
-			console.log('the name is ::::::  ', this)
 			return this.findOne({where: {username: username}})
 		}
 	}

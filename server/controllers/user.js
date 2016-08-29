@@ -5,30 +5,55 @@ const user = new Router({
 	prefix: '/user'
 });
 
-user.get('/', (c, next) => {
-	if(c.state.user){
-		c.ok({
-			username: 'hello'
-		})
-	} else {
-		c.notFound('no login')
+// create user
+user.post('/', async (c, next) => {
+	const {request: req} = c;
+	const body = req.body
+	try{
+		const user = await User.create(body)
+		c.body = user;
+	} catch (err) {
+		console.log('some errors')
+
+		// c.status = 400;
+		// c.body = err.errors
+		c.badRequest(err.errors);
 	}
 })
 
-user.get('/name/:username', async c => {
-	console.log('find username: ', c.params.username);
-	const theuser = await User.findByUsername(c.params.username);
-	console.log('i find him:::', theuser)
-	c.body = theuser;
-})
-
+// get user info
 user.get('/:userid', async c => {
-	console.log('enter here???????????????????')
 	const user = await User.findById(c.params.userid);
+
 	if(user){
 		c.body = user
 	} else {
 		c.notFound()
+	}
+})
+
+// delete user
+user.delete('/:userid', async c => {
+	try{
+		const user = await User.findById(c.params.userid)
+		const result = await user.update({
+			status: 'delete'
+		})
+		c.ok('success')
+	} catch(e) {
+		c.badRequest(e.errors|| e)
+	}
+})
+
+// modify user info
+user.put('/:userid', async c => {
+	const {body} = c.request;
+	try{
+		const user = await User.findById(c.params.userid)
+		const result = await user.update(body)
+		c.ok(result);
+	} catch(e) {
+		c.badRequest(e.errors)
 	}
 })
 

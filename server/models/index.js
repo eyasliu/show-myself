@@ -1,6 +1,8 @@
 import Sequelize from 'sequelize';
 
-const seq = new Sequelize(ServerConfig.databaseUrl);
+const seq = new Sequelize(ServerConfig.databaseUrl, {
+	logging: process.env.NODE_ENV === 'production' ? false : console.log.bind(console)
+});
 
 export function init(models){
 	if(Array.isArray(models)){
