@@ -18,7 +18,8 @@ global.Model = Model;
 const getModels = require('./services/getModels').default;
 getModels([
 	'user',
-	'cases'
+	'cases',
+	'tag'
 ])
 
 const policies = require('./policies');
