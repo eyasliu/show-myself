@@ -16,7 +16,10 @@ const config = {
 	resolve: {
 	  extensions: ['', '.js', '.jsx', '.css', '.scss'],
 	  alias: {
-	    root: join('../client')
+	    root: join('../client'),
+	    common: join('../client/common'),
+	    fw: join('../client/modules/framework'),
+	    cases: join('../client/modules/cases'),
 	  }
 	},
 	module: {
@@ -51,6 +54,10 @@ const config = {
 			}
 		]
 	},
+	postcss: () => [
+	  // require('postcss-inline-comment'),
+	  require('precss')
+	],
 	plugins: [
 		new webpack.NoErrorsPlugin(),
 		new webpack.DefinePlugin({

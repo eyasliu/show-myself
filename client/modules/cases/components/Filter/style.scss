@@ -1,0 +1,26 @@
+.filter{
+	height: 67px;
+	line-height: 67px;
+	border-bottom: 1px solid #d2d6d5;
+}
+.inner{
+	max-width: 1423px;
+	margin: 0 auto;
+}
+.title{
+	float: left;
+	font-weight: bold;
+}
+.view{
+	float: right;
+
+	li{
+		float: left;
+		width: 67px;
+		text-align: center;
+		border-right: 1px solid #d2d6d5;
+		&:last-of-type{
+			border-right: none;
+		}
+	}
+}

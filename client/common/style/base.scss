@@ -1,0 +1,104 @@
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'microsoft yahei';
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+li {
+    list-style: none;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+img{
+    border: none;
+}
+input[type="submit"],
+input[type="text"]{
+    -webkit-appearance: none;
+}
+
+/* GENERALS */
+
+body{
+    font-family: MuseoSans, serif;
+    font-size:15px;
+    color: #313131;
+    background: #e1e3e4;
+    overflow-x:hidden;
+}
+
+a{
+    color:#3c948b;
+    text-decoration:none;
+
+    -webkit-transition: color .25s ease-out;
+    transition: color .25s ease-out;
+}
+a:hover{
+    color: #313131;
+    text-decoration:none;
+}
+
+.x-h1{
+    font-size: 45px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin-bottom:23px;
+    font-weight: normal;
+    line-height: 170%;
+}
+h1, .h1{
+    font-size:34px;
+}
+h2, .h2{
+    font-size:26px;
+}
+h3, .h3{
+    font-size:21px;
+}
+h4{
+    font-size:15px;
+}
+h5{
+    font-size:15px;
+}
+h6{
+    font-size:12px;
+}
+
+.h4{
+    font-size: 18px;
+
+}
+
+h4.hr{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d2d6d5;
+    line-height: normal;
+}
+
+p,
+blockquote,
+.p{
+    margin-bottom:23px;
+    line-height:190%;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+input, textarea, select{
+    font-family: MuseoSans, serif;
+    font-size: 15px;
+    color: #313131;
+}

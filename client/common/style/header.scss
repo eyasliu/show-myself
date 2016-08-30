@@ -1,0 +1,80 @@
+#header{
+  nav {
+    position: relative;
+    width: 100%;
+    height: 66px;
+    line-height: 67px;
+    background: #e1e3e4;
+    border-bottom: 1px solid #d2d6d5;
+    z-index: 200;
+
+    -webkit-transition: background .25s ease-out;
+    transition: background .25s ease-out;
+    &.top {
+        color: #a6abab;
+        background: #f4f4f4;
+        z-index: 11;
+    }
+    /* LOGO */
+
+    .logo{
+        display: inline-block;
+        width: 188px;
+        height: 22px;
+        background-size: 100% 100%;
+        float: left;
+        margin: 0 20px;
+    }
+    .logo a{
+        display: block;
+        
+        overflow: hidden;
+    }
+
+    .logo.large{
+        width: 376px;
+        height: 44px;
+    }
+  }
+  /* menu */
+  .main ul.menu {
+      position: absolute;
+      right: 0;
+  }
+  .menu > li {
+    float: left;
+  }
+  nav.main ul.menu {
+      position: absolute;
+      right: 0;
+  }
+  ul.menu{
+    li {
+        position: relative;
+    }
+    li:first-child {
+        border-left: none;
+    }
+    > li {
+        border-left: 1px solid #d2d6d5;
+    }
+    li a,
+    li span {
+        display: block;
+        height: 66px;
+        padding: 0 15px;
+        color: #313131;
+        transition: background .25s ease-out, color .25s ease-out;
+    }
+    li.active a,
+    li.active span {
+        font-weight: bold;
+    }
+    & > li a:hover,
+    & > li span:hover,
+    & > li.open span {
+        background-color: #F4F4F4;
+    }
+
+  }
+}
