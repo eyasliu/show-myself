@@ -1,4 +1,5 @@
 import Top from './components/Top';
+import Footer from './components/Footer';
 import {Provider} from 'react-redux';
 import createStore from 'utils/store';
 import rootReducer from './reducers';
@@ -11,9 +12,10 @@ export default class App extends React.Component{
 			<Provider store={store}>
 				<div>
 					<Top></Top>
-					<main>
+					<main className="main">
 						{this.props.children}
 					</main>
+					<Footer></Footer>
 				</div>
 			</Provider>
 		)
