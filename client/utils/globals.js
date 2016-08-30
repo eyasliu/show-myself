@@ -19,7 +19,8 @@ import IndexRedirect from 'react-router/lib/IndexRedirect';
 import IndexRoute from 'react-router/lib/IndexRoute';
 
 
-// import fetch from './fetch';
+import fetchJson from './fetchJson';
+import config from '../config.json';
 // import config from './config';
 // import TreeData from './tree';
 
@@ -63,5 +64,6 @@ import IndexRoute from 'react-router/lib/IndexRoute';
   IndexRoute
 }, {
   _,
-  // config
+  fetchJson,
+  config
 })

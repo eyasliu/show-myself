@@ -38,7 +38,7 @@ export default models => {
 	/**
 	 * sync database
 	 */
-	const forceSync = [] // will force sync, drop first and then create table
+	const forceSync = ["casesxx"] // will force sync, drop first and then create table
 	for(let i in models){
 		M[models[i]].sync({
 			force: forceSync.indexOf(models[i]) > -1
@@ -53,11 +53,11 @@ export default models => {
 		const mockCases = mockData(M['cases'], {
 			'data|10-20': [{
 				title: '@word',
-				thumb: '@image',
+				thumb: '@image(700x500)',
 				images: JSON.stringify(Mock.mock(['@image', '@image', '@image', '@image'])),
 				content: '@cparagraph',
 				url: '@url(http)',
-				userId: 'eyas'
+				author: 'eyas'
 			}]
 		})
 		const mockUser = mockData(M['user'], {

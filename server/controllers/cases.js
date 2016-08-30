@@ -11,7 +11,7 @@ CaseCtrl.get('/', async c => {
 		paged: 0,
 		limit: 10
 	}, c.query)
-	const pageCase = await Cases.findList({}, query.paged, query.limit)
+	const pageCase = await Cases.findList({}, Number(query.paged), Number(query.limit))
 	c.ok(pageCase);
 })
 

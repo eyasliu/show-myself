@@ -26,6 +26,7 @@
     "cross-env": "^2.0.0",
     "css-loader": "^0.24.0",
     "gulp": "^3.9.1",
+    "json-loader": "^0.5.4",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
     "koa-compose": "^3.1.0",

@@ -1,5 +1,50 @@
-.listContainer{
+.list{
 	max-width: 1423px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 25px;
+}
+.item{
+	width: 50%;
+	float: left;
+	margin-bottom: 50px;
+	.inner{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	h1{
+		font-size: 1.5em;
+		line-height: 1.5em;
+		margin: 0.2em 0;
+		white-space: nowrap;
+		width: 100%;
+		display: block;	
+		text-align: center;
+	}
+	p{
+		margin: 0;
+		line-height: 25px;
+		height: 50px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.thumb{
+		display: block;
+		// height: 0;
+		// padding-bottom: 25%;
+		img {
+			// float: left;
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			// height: auto;
+			transform: translateZ(0);
+			transition: all .25s linear;
+		}
+	}
+}
+@media (max-width: 720px) {
+	.item{
+		width: 100%;
+	}
 }

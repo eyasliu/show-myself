@@ -17,6 +17,7 @@ const config = {
 	  extensions: ['', '.js', '.jsx', '.css', '.scss'],
 	  alias: {
 	    root: join('../client'),
+	    utils: join('../client/utils'),
 	    common: join('../client/common'),
 	    fw: join('../client/modules/framework'),
 	    cases: join('../client/modules/cases'),
@@ -28,6 +29,9 @@ const config = {
 			  test: /\.(js|jsx)$/,
 			  loader: 'babel',
 			  include: [join('../client')]
+			}, {
+			  test: /\.json$/,
+			  loader: 'json'
 			}, {
 			  test: /\.css$/,
 			  loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]'

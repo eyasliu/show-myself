@@ -1,4 +1,4 @@
-import React from 'react';
+import 'babel-polyfill';
 import {render} from 'react-dom';
 import 'common/style';
 import './utils/globals';
