@@ -4,6 +4,7 @@ import session from 'koa-generic-session';
 import bodyParser from 'koa-bodyparser';
 import passport from 'koa-passport';
 
+import sessionStore from '../services/sessionLocalStore';
 import noop from './noop';
 import staticServer from './static';
 import log from './log';
@@ -13,7 +14,10 @@ import log from './log';
 export const beforeController = compose([
 	log,
 	bodyParser(),
-	convert(session()),
+	convert(session({
+		store: new sessionStore,
+		prefix: 'thesid:'
+	})),
 	passport.initialize(),
 	passport.session(),
 	staticServer

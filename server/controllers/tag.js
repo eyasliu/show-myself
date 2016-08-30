@@ -2,7 +2,7 @@ import Router from 'koa-router';
 import Tag from '../models/tag';
 
 const tag = new Router({
-	prefix: '/tag'
+	prefix: ServerConfig.apiPrefix + '/tag'
 })
 
 tag.get('/', async c => {

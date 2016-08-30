@@ -2,7 +2,7 @@ import Router from 'koa-router';
 import Cases from '../models/cases';
 
 const CaseCtrl = new Router({
-	prefix: "/cases"
+	prefix: ServerConfig.apiPrefix + "/cases"
 })
 
 // cases list ,has pagenation

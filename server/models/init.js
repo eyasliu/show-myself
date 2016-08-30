@@ -1,3 +1,8 @@
+/**
+ * create mock data
+ * @param  {model} model will mock data model
+ * @param  {mockjs rule} rule) generate data rule
+ */
 const mockData = (model, rule) => () => {
 	const Mock = require('mockjs');
 	const mockdatas = Mock.mock(rule);
@@ -33,14 +38,14 @@ export default models => {
 	/**
 	 * sync database
 	 */
-	const forceSync = []
+	const forceSync = [] // will force sync, drop first and then create table
 	for(let i in models){
 		M[models[i]].sync({
 			force: forceSync.indexOf(models[i]) > -1
 		})
 	}
 
-	if(process.env.NODE_ENV === 'development'){}
+	if(process.env.NODE_ENV === 'development'){
 		/**
 		 * define mock data
 		 */
@@ -74,7 +79,7 @@ export default models => {
 		/**
 		 * start mock
 		 */
-		mockCases()
+		// mockCases()
 		// mockUser()
 		// mockTag()
 	}

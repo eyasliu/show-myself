@@ -2,7 +2,7 @@ import Router from 'koa-router';
 import User from '../models/user';
 
 const user = new Router({
-	prefix: '/user'
+	prefix: ServerConfig.apiPrefix + '/user'
 });
 
 // create user
@@ -18,11 +18,11 @@ user.post('/', async (c, next) => {
 })
 
 // get user info
-user.get('/:userid', async c => {
-	const user = await User.findById(c.params.userid);
+user.get('/:user', async c => {
+	const userinfo = await User[(parseInt(c.params.user) ? 'findById' : 'findByUsername')](c.params.user)
 
-	if(user){
-		c.body = user
+	if(userinfo){
+		c.body = userinfo
 	} else {
 		c.notFound()
 	}

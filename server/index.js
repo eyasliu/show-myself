@@ -15,6 +15,8 @@ global.ServerConfig = config.server;
 global.App = app;
 global.Model = Model;
 
+ServerConfig.apiPrefix = ServerConfig.apiPrefix || '/api/v1'
+
 const modelsInit = require('./models/init').default;
 modelsInit([
 	'user',
