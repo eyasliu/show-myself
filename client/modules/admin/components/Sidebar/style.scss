@@ -1,0 +1,17 @@
+.sidebar{
+	display: inline-block;
+	position: fixed;
+  :global(.ant-menu){
+	  background-color: #222d32;
+	  color: #fff;
+	  :global(.ant-menu-item:hover),
+	  :global(.ant-menu-item-active),
+	  :global(.ant-menu-submenu-active),
+	  :global(.ant-menu-submenu-title:hover){
+	  	background-color: #1e282c;;
+	  }
+	  :global(.ant-menu-sub){
+	    background: #2c3b41;
+	  }
+  }
+}

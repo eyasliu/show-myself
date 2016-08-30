@@ -21,6 +21,7 @@ const config = {
 	    common: join('../client/common'),
 	    fw: join('../client/modules/framework'),
 	    cases: join('../client/modules/cases'),
+	    admin: join('../client/modules/admin'),
 	  }
 	},
 	module: {
