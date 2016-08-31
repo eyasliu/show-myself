@@ -5,6 +5,7 @@ import page from './page';
 import auth from './auth';
 import cases from './cases';
 import tag from './tag';
+import upload from './upload';
 
 export default compose([
 	page,
@@ -12,5 +13,6 @@ export default compose([
 	cases,
 	tag,
 	authPolicies,
+	upload,
 	user
 ])

@@ -1,0 +1,10 @@
+/* reset antd style */
+.upload-list-inline .ant-upload-list-item {
+  display: inline-block;
+  width: 65px;
+  margin-right: 8px;
+  .anticon.anticon-cross{
+  	color: #fff;
+  	font-weight: bold;
+  }
+}

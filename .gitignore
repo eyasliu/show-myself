@@ -2,3 +2,5 @@ node_modules
 /build
 /config/local.json
 localSession*
+/assets
+/deploy

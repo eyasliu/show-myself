@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^1.10.0",
+    "async-busboy": "^0.1.1",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -26,6 +27,7 @@
     "concurrently": "^2.2.0",
     "cross-env": "^2.0.0",
     "css-loader": "^0.24.0",
+    "formidable": "^1.0.17",
     "gulp": "^3.9.1",
     "json-loader": "^0.5.4",
     "koa": "^2.0.0",

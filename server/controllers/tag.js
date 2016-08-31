@@ -6,7 +6,7 @@ const tag = new Router({
 })
 
 tag.get('/', async c => {
-	const tags = await Tag.findAll()
+	const tags = await Tag.findAll({order: 'id DESC'})
 	c.ok(tags)
 })
 

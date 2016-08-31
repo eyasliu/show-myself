@@ -82,6 +82,12 @@ class PostForm extends Component{
         		))}
         	</Select>
         </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="内容"
+        >
+          <Input type="text" placeholder="" {...getFieldProps('content', { initialValue: data.content||'' })} />
+        </FormItem>
         <FormItem wrapperCol={{ span: 16, offset: 6 }} style={{ marginTop: 24 }}>
           <Button type="primary" htmlType="submit">确定</Button>
         </FormItem>
