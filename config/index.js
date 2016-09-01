@@ -20,6 +20,12 @@ export default {
 	server: {
 		port: 8000,
 		webpack: serverWebpack,
+		databaseUrl: "mysql://root:root@127.0.0.1:3306/show-myself",
+		superUser:{
+			username: "admin",
+			password: "admin",
+			email: "admin@local.com"
+		},
 		...localConfig.server
 	}
 }

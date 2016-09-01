@@ -77,6 +77,13 @@ export default models => {
 		})
 
 		/**
+		 * create super user
+		 */
+		const {superUser} = ServerConfig
+		M['user'] && M['user'].findOrCreate({where: {username: superUser.username}, defaults: superUser})
+		.spread((user, created) => {})
+
+		/**
 		 * start mock
 		 */
 		// mockCases()
